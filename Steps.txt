@@ -1,0 +1,25 @@
+1. 烧录镜像
+2. 网线连接 默认账户 pi 密码 raspberry
+3. 开启vnc  可调分辨率
+4. 连入wifi
+5. 设置root密码          sudo passwd root    
+6. 解锁root账户          sudo passwd -u root
+                                  sudo nano /etc/ssh/sshd_config
+6.5 新建账户               sudo adduser pisces
+      切换到root            su
+      升级pisces            sudo visudo
+			    添加一行 pisces ALL=(ALL) ALL      见17min
+7. Filezilla 导入文件    
+8. pip install
+9. vscode连接raspberrypi  安装python调试框架
+10.  运行web_control
+11.  安装mysql
+12.  更改用户属性
+13. navicat连接pisces
+14. 网页登陆 数据库刷新数据
+15. sudo wget https://github.com/fatedier/frp/releases/download/v0.38.0/frp_0.38.0_linux_arm.tar.gz
+    sudo tar xvf frp_0.38.0_linux_arm.tar.gz
+16. 修改frpc.ini frps.ini
+16.5 编写.sh脚本
+17. 下载screen      sudo apt-get install screen
+18. 上传MJPG

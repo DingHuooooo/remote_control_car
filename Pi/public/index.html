@@ -1,0 +1,139 @@
+<html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>HD的遥控车</title>
+                    <link href="bootstrap.min.css" rel="stylesheet" media="screen">
+                    <script src="jquery-3.6.0.js"></script>
+                    <style type="text/css">
+                        #send {
+                        position: absolute;
+                            left: 270px;
+                            top: 550px;
+                        }
+                        #text {
+                        position: absolute;
+                            left: 70px;
+                            top: 550px;
+                        }
+                        #video {
+                        position: absolute;
+                            left: 50px;
+                            top: 30px;
+                        }
+
+                        #forward{
+                            position: absolute;
+                            left: 170px;
+                            top: 360px;
+                        }
+                        #backward{
+                            position: absolute;
+                            left: 170px;
+                            top: 460px;
+                        }
+                        #stop{
+                            position: absolute;
+                            left: 170px;
+                            top: 410px;
+                        }
+                        #left{
+                            position: absolute;
+                            left: 120px;
+                            top: 410px;
+                        }
+                        #right{
+                            position: absolute;
+                            left: 220px;
+                            top: 410px;
+                        }
+                        #turnleft{
+                            position: absolute;
+                            left: 60px;
+                            top: 460px;
+                        }
+                        #turnright{
+                            position: absolute;
+                            left: 240px;
+                            top: 460px;
+                        }
+                    #camturnleft{
+                            position: absolute;
+                            left: 10px;
+                            top: 650px;
+                        }
+                    #camturnright{
+                            position: absolute;
+                            left: 260px;
+                            top: 650px;
+                        }
+                    #camturnup{
+                            position: absolute;
+                            left: 140px;
+                            top: 600px;
+                        }
+                    #camturndown{
+                            position: absolute;
+                            left: 140px;
+                            top: 700px;
+                        }
+                    #camini{
+                            position: absolute;
+                            left: 140px;
+                            top: 650px;
+                        }
+
+                        .btn{
+                             background: #62559f;
+                            }
+                    </style>
+                    <script>
+                        $(function(){
+                            $("button").click(function(){
+                                $.post("/cmd",this.id);
+                            });
+                        })
+                        ;
+
+                    </script>
+                </head>
+                <body>
+                <div id="container" class="container">
+                    <div>
+                    <iframe id="video" src="//192.168.0.132:8082/?action=stream" style="height:360px;width:360px;" scrolling="yes" frameborder="0"></iframe>
+                    <div>
+
+                    <div>
+                        <input type="submit" value="发送请求" id="forward" class="btn btn-lg btn-primary glyphicon glyphicon-circle-arrow-up">
+                    </div>
+                    <div>
+
+                        <button id='left' class="btn btn-lg btn-primary glyphicon glyphicon-circle-arrow-left">2</button>
+                        <button id='stop' class="btn btn-lg btn-primary glyphicon glyphicon-stop">3</button>
+                        <button id='right' class="btn btn-lg btn-primary glyphicon glyphicon-circle-arrow-right"><4/button>
+                    </div>
+                    <div>
+                        <button id='backward' class="btn btn-lg btn-primary glyphicon glyphicon-circle-arrow-down">5</button>
+                    </div>
+                     <div>
+                        <button id='turnleft' class="btn btn-lg btn-primary glyphicon">向左转</button>
+                        <button id='turnright' class="btn btn-lg btn-primary glyphicon">向右转</button>
+                    </div>
+                    <div>
+                        <button id='camturnright' class="btn btn-lg btn-primary glyphicon">镜头向右转</button>
+                        <button id='camturnleft' class="btn btn-lg btn-primary glyphicon">镜头向左转</button>
+                        <button id='camturnup' class="btn btn-lg btn-primary glyphicon">镜头向上转</button>
+                        <button id='camturndown' class="btn btn-lg btn-primary glyphicon">镜头向下转</button>
+                        <button id='camini' class="btn btn-lg btn-primary glyphicon">镜头初始化</button>
+                    </div>
+                    <div>
+                        <form action="/sendtext" method="post">
+                            <input name="text" type="text" id='text' />
+                            <input value="Send" type="submit" id ='send'/>
+                        </form>
+                    </div>
+                </div>
+
+                <script src="bootstrap.min.js"></script>
+                </body>
+                </html>
